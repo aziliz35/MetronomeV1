@@ -15,6 +15,8 @@ public class ControleurImpl implements Controleur {
 		this.m = new MoteurImpl();
 		this.marquerMesure = new MarquerMesure(this);
 		this.marquerTemps = new MarquerTemps(this);
+		
+		
 	}
 
 	@Override
