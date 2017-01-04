@@ -4,7 +4,7 @@ package Invoker;
  * @author Aziliz
  *
  */
-public class MoteurImpl {
+public class MoteurImpl implements Moteur{
 
 	private boolean enMarche;
 	private int tempo;
@@ -13,8 +13,13 @@ public class MoteurImpl {
 	int minTempo = 30;
 	int maxTempo = 300;
 	
+	int minTpm = 2;
+	int maxTpm = 7;
+	
 
-	public boolean isEnMarche() {
+	@Override
+	public boolean getEnMarche() {
+		// TODO Auto-generated method stub
 		return enMarche;
 	}
 	
@@ -45,8 +50,20 @@ public class MoteurImpl {
 		return nbTpm;
 	}
 	
+	/**
+	 * Modifie le nombre de temps par minute
+	 * @param nbTpm
+	 */
 	public void setNbTpm(int nbTpm) {
-		this.nbTpm = nbTpm;
+		if(nbTpm < minTpm){
+			this.nbTpm = minTpm;
+		}else if(nbTpm > maxTpm){
+			this.nbTpm = maxTpm;
+		}else{
+			this.nbTpm = nbTpm;
+		}
 		
 	}
+
+
 }
