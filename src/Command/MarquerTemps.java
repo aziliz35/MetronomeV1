@@ -1,15 +1,13 @@
 package Command;
-import Invoker.Moteur;
-import Receiver.Controleur;
+import Moteur.Moteur;
+import Controleur.*;
 
-
-public abstract class MarquerTemps  implements Command{
+public class MarquerTemps  implements Command{
 
 	 public Controleur ctl;
 	 public Moteur m;
 	 
 	 public MarquerTemps(Controleur ctl) {
-
 		this.ctl = ctl;
 	}
 

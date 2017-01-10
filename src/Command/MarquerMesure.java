@@ -1,15 +1,13 @@
 package Command;
-import Invoker.Moteur;
-import Receiver.Controleur;
-import Receiver.ControleurImpl;
 
-public class MarquerMesure {
+import Controleur.*;
+
+public class MarquerMesure implements Command {
 	
-	 public Controleur ctl;
-	 public Moteur m;
-		 
-	 public MarquerMesure(ControleurImpl controleurImpl) {
-		this.ctl = controleurImpl;
+	private Controleur ctl;
+
+	public MarquerMesure(Controleur ctl) {
+		this.ctl = ctl;
 	}
 
 	public void execute(){
