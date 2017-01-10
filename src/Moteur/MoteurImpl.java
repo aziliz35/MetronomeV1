@@ -32,6 +32,12 @@ public class MoteurImpl implements Moteur {
 		this.marquerMesure = marquerMesure;
 	}
 
+	/**
+	 * Constructeur du moteur avec initialisation
+	 * de nbTpm (nombre de temps par minute)
+	 *de tempo
+	 *et lancement du TimerTask
+	 */
 	public MoteurImpl() {
 		this.nbTpm = 2;
 		this.tempo = 30;
@@ -64,7 +70,8 @@ public class MoteurImpl implements Moteur {
 
 	/**
 	 * Modifie le tempo
-	 *
+	 *si le tempo selectionné est inferieur au tempo minimal, on affecte le tempo minimal
+	 *idem pour le tempo maximal
 	 * @param tempo
 	 */
 	public void setTempo(int tempo) {

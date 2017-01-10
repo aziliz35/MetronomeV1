@@ -3,7 +3,7 @@ import Command.*;
 import Moteur.*;
 import Controleur.*;
 /**
- * Created by Inés on 04/01/2017.
+ * Created by Ines on 04/01/2017.
  */
 public class Application {
 
@@ -13,6 +13,7 @@ public class Application {
     private static Command marquerTemps;
     private static Command startCommand;
     private static Command stopCommand;
+
 
     public static void main( String[] args )
     {

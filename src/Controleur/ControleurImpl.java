@@ -28,23 +28,40 @@ public class ControleurImpl implements Controleur {
         System.out.println("tac");
     }
 
+    /**
+     * Modification du moment où l'on marque la mesure
+     * @param marquerMesure
+     */
     public void setMarquerMesure(MarquerMesure marquerMesure) {
         this.marquerMesure = marquerMesure;
     }
 
+    
+    /**
+     * Modification de marquerTemps
+     * @param marquerTemps
+     */
     public void setMarquerTemps(MarquerTemps marquerTemps) {
         this.marquerTemps = marquerTemps;
     }
 
-    public void setDemarrerMoteur(Command demarrerMoteur) {
+    
+   public void setDemarrerMoteur(Command demarrerMoteur) {
         this.demarrerMoteur = demarrerMoteur;
     }
 
+    /**
+     * Demarrage du moteur
+     */
     public void startMoteur() {
         System.out.println("Moteur demarre !");
         this.m.marche();
     }
 
+    /**
+     * Le moteur est arrêté
+     * @param arretMoteur
+     */
     public void setArretMoteur(Command arretMoteur) {
         this.arretMoteur = arretMoteur;
     }
