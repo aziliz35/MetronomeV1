@@ -40,7 +40,7 @@ public class MoteurImpl implements Moteur {
 	 */
 	public MoteurImpl() {
 		this.nbTpm = 2;
-		this.tempo = 30;
+		this.tempo = 100;
 		this.timer = new Timer() ;
 		this.metronome = new TimerTask() {
 			@Override

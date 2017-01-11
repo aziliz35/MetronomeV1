@@ -1,18 +1,21 @@
 package Controleur;
 
 import Command.*;
+import IHM.Ihm;
 import Moteur.Moteur;
 
 public class ControleurImpl implements Controleur {
 
     private Moteur m;
+    private Ihm h;
     private Command marquerMesure;
     private Command marquerTemps;
     private Command demarrerMoteur;
     private Command arretMoteur;
 
-    public ControleurImpl(Moteur m) {
+    public ControleurImpl(Moteur m, Ihm h) {
         this.m = m;
+        this.h = h;
     }
 
     @Override
@@ -22,20 +25,25 @@ public class ControleurImpl implements Controleur {
 
     public void marquerTemps() {
         System.out.println("tic");
+        this.h.eteindreLed(1);
+        this.h.allumerLed(1);
+        this.h.emettreSonTemps();
     }
 
     public void marquerMesure() {
         System.out.println("tac");
+        this.h.allumerLed(2);
+        this.h.eteindreLed(2);
+        this.h.emettreSonMesure();
     }
 
     /**
-     * Modification du moment où l'on marque la mesure
+     * Modification du moment o? l'on marque la mesure
      * @param marquerMesure
      */
     public void setMarquerMesure(MarquerMesure marquerMesure) {
         this.marquerMesure = marquerMesure;
     }
-
     
     /**
      * Modification de marquerTemps
@@ -45,8 +53,7 @@ public class ControleurImpl implements Controleur {
         this.marquerTemps = marquerTemps;
     }
 
-    
-   public void setDemarrerMoteur(Command demarrerMoteur) {
+    public void setDemarrerMoteur(Command demarrerMoteur) {
         this.demarrerMoteur = demarrerMoteur;
     }
 
@@ -59,7 +66,7 @@ public class ControleurImpl implements Controleur {
     }
 
     /**
-     * Le moteur est arrêté
+     * Le moteur est arr?t?
      * @param arretMoteur
      */
     public void setArretMoteur(Command arretMoteur) {
