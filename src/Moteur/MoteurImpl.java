@@ -21,8 +21,8 @@ public class MoteurImpl implements Moteur {
 	private Command marquerMesure;
 
 	int compteur = 0 ;
-	int minTempo = 30;
-	int maxTempo = 300;
+	public static final int minTempo = 30;
+	public static final int maxTempo = 300;
 
 	public void setMarquerTemps(Command marquerTemps) {
 		this.marquerTemps = marquerTemps;

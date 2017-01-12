@@ -25,15 +25,11 @@ public class ControleurImpl implements Controleur {
 
     public void marquerTemps() {
         System.out.println("tic");
-        this.h.eteindreLed(1);
-        this.h.allumerLed(1);
         this.h.emettreSonTemps();
     }
 
     public void marquerMesure() {
         System.out.println("tac");
-        this.h.allumerLed(2);
-        this.h.eteindreLed(2);
         this.h.emettreSonMesure();
     }
 

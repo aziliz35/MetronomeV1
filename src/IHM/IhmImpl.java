@@ -1,5 +1,6 @@
 package IHM;
 
+import Moteur.MoteurImpl;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -37,36 +38,41 @@ public class IhmImpl implements Initializable, Ihm {
     private String sonTemps = this.getClass().getResource("/resources/beep-07.mp3").toString();
     private String sonMesure = this.getClass().getResource("/resources/beep-08.mp3").toString();
 
-    public IhmImpl() {
-        this.playerTemps = new MediaPlayer(new Media(sonTemps));
-        this.playerMesure = new MediaPlayer(new Media(sonMesure));
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
     }
 
-    public void allumerLed(int led) {
-        switch (led) {
-            case 1:
-                this.led1.setImage(new Image("/resources/led_rouge.png"));
-                break;
-            case 2:
-                this.led2.setImage(new Image("/resources/led_verte.png"));
-                break;
-        }
-    }
+    public void init() {
+        this.playerTemps = new MediaPlayer(new Media(sonTemps));
+        this.playerMesure = new MediaPlayer(new Media(sonMesure));
 
-    public void eteindreLed(int led) {
-        switch (led) {
-            case 1:
-                this.led1.setImage(new Image("/resources/led_grise.png"));
-                break;
-            case 2:
-                this.led2.setImage(new Image("/resources/led_grise.png"));
-                break;
-        }
+        this.txt.setText(String.valueOf(MoteurImpl.minTempo));
+        this.playerTemps.setOnPlaying(new Runnable() {
+            @Override
+            public void run() {
+                led1.setImage(new Image("/resources/led_rouge.png"));
+            }
+        });
+
+        this.playerTemps.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                led1.setImage(new Image("/resources/led_grise.png"));
+            }
+        });
+
+        this.playerMesure.setOnPlaying(new Runnable() {
+            @Override
+            public void run() {
+                led2.setImage(new Image("/resources/led_verte.png"));
+            }
+        });
+        this.playerMesure.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                led2.setImage(new Image("/resources/led_grise.png"));
+            }
+        });
     }
 
     public void emettreSonTemps() {
